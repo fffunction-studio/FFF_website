@@ -1,0 +1,28 @@
+.header-offset {
+  padding-top: 120px;
+}
+
+.header-main {
+  @apply fixed w-full flex items-center;
+  mix-blend-mode: difference;
+}
+
+.header-main {
+  @apply bg-transparent;
+  padding-bottom: calc($site-offset / 2);
+  padding-top: calc($site-offset);
+  transition: $short ease;
+  
+  .logo {
+    transform: scale(1.25);
+    transform-origin: left;
+    transition: transform $short ease;
+  }
+
+  &.pinned {
+    padding-top: $site-offset;
+    .logo {
+      transform: scale(1);
+    }
+  }
+}

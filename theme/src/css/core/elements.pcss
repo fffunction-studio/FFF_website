@@ -1,0 +1,28 @@
+html ,
+body {
+  @apply text-white bg-black;
+}
+
+a,
+a:active,
+a:focus,
+a:visited {
+  @apply no-underline;
+  color: inherit;
+}
+
+a.underline-in {
+  position: relative;
+
+  &::after {
+    @apply border-white border-b-2 bottom-0 left-0 absolute w-full h-full;
+    transition: $short ease;
+    transform-origin: left;
+    transform: scale(0, 1);
+    content: '';
+  }
+  
+  &:hover::after {
+    transform: scale(1, 1);
+  }  
+}

@@ -1,0 +1,15 @@
+{% set menu = craft.globalSets().handle('menu').one().menu.all() %}
+
+<ul class="nav-menu">
+
+  {% for item in menu %}
+
+    <li class="ml-4">
+      <a class="underline-in" href="{{ item.url }}">
+        {{ item.title }}
+      </a>
+    </li>
+
+  {% endfor %}
+
+</ul>

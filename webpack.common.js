@@ -15,13 +15,13 @@ module.exports = {
     new VueLoaderPlugin(),
     new CleanWebpackPlugin([
       path.resolve(__dirname, 'server/private/craft', 'templates'),
-      path.resolve(__dirname, 'server/public', 'dest'),
+      path.resolve(__dirname, 'server/public', 'build'),
     ]),
     new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'templates'),
+      from: path.resolve(__dirname, 'theme', 'templates'),
       to: path.resolve(__dirname, 'server/private/craft', 'templates')
     }, {
-      from: path.resolve(__dirname, 'src', 'includes'),
+      from: path.resolve(__dirname, 'theme', 'include'),
       to: ''
     }]),
     new MiniCssExtractPlugin({
@@ -85,8 +85,8 @@ module.exports = {
   },
 
   entry: {
-    main: './src/index.js',
-    styleguide: './src/styleguide.js',
+    main: './theme/src/index.js',
+    styleguide: './theme/src/styleguide.js',
   },
 
   output: {

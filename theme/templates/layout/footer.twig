@@ -1,0 +1,46 @@
+<div id="footer" class="footer-wrapper relative">
+
+  <footer class="section footer-main bg-black text-white z-50">
+    <div class="container">
+
+      {% block footer %}
+
+        {% set query = craft.globalSets().handle('footer') %}
+        {% set footerEntry = query.one() %}
+        
+        <div class="row my-40">
+          <div class="col w-3/12 ml-2/12">
+            <div class="mb-16">
+            <p class="text-xlarge font-bold">
+            Don't be a stranger.<br>
+            Contact us.
+            </p>
+            </div>
+            <div>
+              <p class="text-xlarge">
+                Hallenweg 1C<br>
+                5615 PP Eindhoven
+              </p>
+            </div>
+          </div>
+          <div class="col w-3/12 ml-1/12">
+            <div class="mb-16">
+            <p class="text-xlarge">
+            +31 6 48 93 92 96<br>
+            hello@fffunction.studio
+            </p>
+            </div>
+            <div>
+              <p class="text-xlarge">
+                Instagram<br>
+                Facebook
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endblock %}
+
+    </div>
+  </footer>
+
+</div>

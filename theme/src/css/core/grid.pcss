@@ -1,0 +1,31 @@
+.container {
+  @apply mx-auto;
+  max-width: $site-max-width;
+  padding-left: $site-offset;
+  padding-right: $site-offset;
+
+  &--no-padding {
+    @apply mx-auto;
+    max-width: $site-max-width;
+  }
+}
+
+.section {
+  padding-top: $section-offset;
+  padding-bottom: $section-offset;
+}
+
+.hero {
+  @apply min-h-screen flex items-center;
+}
+
+.row {
+  @apply flex flex-wrap;
+  margin-left: calc($gutter / -2);
+  margin-right: calc($gutter / -2);
+}
+
+.col {
+  padding-left: calc($gutter / 2);
+  padding-right: calc($gutter / 2);
+}
