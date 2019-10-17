@@ -36,7 +36,7 @@ module.exports = {
     rules: [{
       test: /\.js$/,
 
-      include: [path.resolve(__dirname, 'src')],
+      include: [path.resolve(__dirname, 'theme', 'src')],
 
       loader: 'babel-loader',
     }, {
@@ -80,7 +80,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts'],
     alias: {
-      '@': path.resolve(__dirname, 'src')
+      '@': path.resolve(__dirname, 'theme', 'src')
     }
   },
 
