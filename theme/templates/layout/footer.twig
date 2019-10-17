@@ -5,32 +5,36 @@
 
       {% block footer %}
 
-        {% set query = craft.globalSets().handle('footer') %}
+        {% set query = craft.globalSets().handle("footer") %}
         {% set footerEntry = query.one() %}
-        
-        <div class="row my-40">
-          <div class="col w-3/12 ml-2/12">
-            <div class="mb-16">
-            <p class="text-xlarge font-bold">
-            Don't be a stranger.<br>
-            Contact us.
-            </p>
+
+        <div class="row my-16 md:my-20 lg:my-40 justify-center">
+          <div class="col w-full md:w-6/12 lg:w-5/12">
+            <div class="mb-8 md:mb-12 lg:mb-16">
+              <p class="text-xlarge font-bold">
+                Don't be a stranger.<br>
+                Contact us.
+              </p>
             </div>
-            <div>
+          </div>
+          <div class="col w-full md:w-6/12 lg:w-5/12">
+            <div class="mb-8 md:mb-12 lg:mb-16">
+              <p class="text-xlarge">
+                +31 6 48 93 92 96<br>
+                hello@fffunction.studio
+              </p>
+            </div>
+          </div>
+          <div class="col w-full md:w-6/12 lg:w-5/12">
+            <div class="mb-8 md:mb-12 lg:mb-16">
               <p class="text-xlarge">
                 Hallenweg 1C<br>
                 5615 PP Eindhoven
               </p>
             </div>
           </div>
-          <div class="col w-3/12 ml-1/12">
-            <div class="mb-16">
-            <p class="text-xlarge">
-            +31 6 48 93 92 96<br>
-            hello@fffunction.studio
-            </p>
-            </div>
-            <div>
+          <div class="col w-full md:w-6/12 lg:w-5/12">
+            <div class="">
               <p class="text-xlarge">
                 Instagram<br>
                 Facebook

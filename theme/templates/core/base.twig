@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  {% include "core/metadata.twig" %}
+  <head>
+    {% include "core/metadata.twig" %}
 
-  {% hook "seo" %}
+    {% hook "seo" %}
 
-  <link rel="stylesheet" href="{{ siteUrl }}/build/css/fonts.css">
-  <link rel="stylesheet" href="{{ siteUrl }}/build/css/main.css">
-</head>
+    <link rel="stylesheet" href="{{ siteUrl }}/build/css/fonts.css">
+    <link rel="stylesheet" href="{{ siteUrl }}/build/css/main.css">
+  </head>
 
-<body class="">
+  <body class="">
     <div class="barba-wipe z-40"></div>
 
     {% block header %}
       {% include "layout/header.twig" %}
     {% endblock %}
 
+    {% set footerToggle = true %}
+
     <div class="main-wrapper z-10" data-barba="wrapper">
-      <main class="main" data-barba="container" data-barba-namespace="">
+      <main class="main" data-barba="container" data-barba-namespace="" data-footer-toggle="{{ footerToggle }}">
         {% block main %}{% endblock %}
 
         {% block scripts %}{% endblock %}
@@ -25,10 +27,12 @@
     </div>
 
     {% block footer %}
+
       {% include "layout/footer.twig" %}
+
     {% endblock %}
 
-  <script src="{{ siteUrl }}/build/js/common.js"></script>
-  <script src="{{ siteUrl }}/build/js/main.js"></script>
-</body>
+    <script src="{{ siteUrl }}/build/js/common.js"></script>
+    <script src="{{ siteUrl }}/build/js/main.js"></script>
+  </body>
 </html>

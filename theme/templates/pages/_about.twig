@@ -4,25 +4,25 @@
 
 {% block main %}
 
-  <section class="section header-offset">
+  <section class="header-offset">
     <div class="container">
 
       <div class="row">
-        <div class="col w-6/12">
-          <div class="w-full">
+        <div class="col w-full md:w-10/12 lg:w-6/12">
+          <div class="w-full pb-8 lg:pb-0">
             <figure class="landscape">
               <img src="https://source.unsplash.com/random/600x800" alt="">
             </figure>
           </div>
 
-          <div class="w-8/12 mx-auto mt-2/12">
+          <div class="w-full pb-8 mx-auto md:w-10/12 lg:w-8/12 lg:mt-2/12 lg:pb-0">
             <figure class="landscape">
               <img src="https://source.unsplash.com/random/600x800" alt="">
             </figure>
           </div>
 
         </div>
-        <div class="col w-5/12 ml-1/12 flex flex-col justify-center">
+        <div class="col w-full md:w-10/12 md:ml-2/12 lg:w-5/12 lg:ml-1/12 flex flex-col justify-center">
           <div class="w-full">
             <figure class="landscape">
               <img src="https://source.unsplash.com/random/600x800" alt="">
@@ -37,10 +37,10 @@
   {#  #}
 
   <section class="section bg-block text-white">
-    <div class="container my-40">
+    <div class="container my-16 md:my-20 lg:my-40">
 
       <div class="row">
-        <div class="col w-8/12 mx-auto" style="max-width: 880px;">
+        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto" style="max-width: 880px;">
 
           <p class="text-xlarge">
             We believe that design and technology should enhance and simplify life, not make it more complex. By digging deep, collaborating and aiming for the future, we make sure you get where you need to be. Proudly based in Brainport Eindhoven.
@@ -55,68 +55,22 @@
   {#  #}
 
   <section class="section bg-white text-black">
-    <div class="container my-40">
+    <div class="container my-16 md:my-20 lg:my-40">
 
       <div class="mb-20">
         <div class="row mb-4">
-          <div class="col w-4/12 ml-2/12 mr-6/12">
+          <div class="col w-full md:w-5/12 md:ml-1/12 md:mr-6/12 lg:w-4/12 lg:ml-2/12 lg:mr-6/12">
             <h2 class="text-large">Strategy</h2>
           </div>
         </div>
 
         <div class="row">
-          <div class="col w-3/12 ml-2/12 mr-1/12">
+          <div class="col w-full md:w-5/12 md:ml-1/12 lg:w-3/12 lg:ml-2/12 lg:mr-1/12">
             <p class="text-regular">
               We dig in deep, find the right approach and define goals that we’ll reach with a clear and thoughtful strategy.
             </p>
           </div>
-          <div class="col w-4/12 mr-2/12">
-            <ul class="text-regular opacity-50">
-              <li>Analysis</li>
-              <li>Product Strategy</li>
-              <li>User Stories</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-20">
-        <div class="row mb-4">
-          <div class="col w-4/12 ml-2/12 mr-6/12">
-            <h2 class="text-large">Strategy</h2>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col w-3/12 ml-2/12 mr-1/12">
-            <p class="text-regular">
-              We dig in deep, find the right approach and define goals that we’ll reach with a clear and thoughtful strategy.
-            </p>
-          </div>
-          <div class="col w-4/12 mr-2/12">
-            <ul class="text-regular opacity-50">
-              <li>Analysis</li>
-              <li>Product Strategy</li>
-              <li>User Stories</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-20">
-        <div class="row mb-4">
-          <div class="col w-4/12 ml-2/12 mr-6/12">
-            <h2 class="text-large">Strategy</h2>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col w-3/12 ml-2/12 mr-1/12">
-            <p class="text-regular">
-              We dig in deep, find the right approach and define goals that we’ll reach with a clear and thoughtful strategy.
-            </p>
-          </div>
-          <div class="col w-4/12 mr-2/12">
+          <div class="col w-full mt-8 md:w-5/12 lg:w-4/12 lg:mr-2/12 md:mt-0">
             <ul class="text-regular opacity-50">
               <li>Analysis</li>
               <li>Product Strategy</li>
@@ -135,31 +89,32 @@
     <div class="container mb-40">
 
       <div class="row">
-        <div class="col w-8/12 mx-auto">
-          <h1 class="text-xlarge font-bold mb-20">Founders</h1>
+        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto">
+          <h1 class="text-xlarge font-bold mb-10 lg:mb-20">Founders</h1>
 
-          <div class="flex justify-between">
-            <div class="w-3/12">
+          {# <div class="flex justify-between"> #}
+          <div class="row justify-center">
+            <div class="col w-8/12 mb-8 md:w-4/12 md:mb-0">
               <figure class="w-full portrait">
                 <img src="https://source.unsplash.com/random/600x800" alt="">
               </figure>
-              <p class="text-regular mt-4">
+              <p class="text-regular mt-2 md:mt-4">
                 Thomas Kampers
               </p>
             </div>
-            <div class="w-3/12">
+            <div class="col w-8/12 mb-8 md:w-4/12 md:mb-0">
               <figure class="w-full portrait">
                 <img src="https://source.unsplash.com/random/600x800" alt="">
               </figure>
-              <p class="text-regular mt-4">
+              <p class="text-regular mt-2 md:mt-4">
                 Rik Dijkhoff
               </p>
             </div>
-            <div class="w-3/12">
+            <div class="col w-8/12 md:w-4/12">
               <figure class="w-full portrait">
                 <img src="https://source.unsplash.com/random/600x800" alt="">
               </figure>
-              <p class="text-regular mt-4">
+              <p class="text-regular mt-2 md:mt-4">
                 Mark brand
               </p>
             </div>

@@ -1,0 +1,10 @@
+.mover {
+  @apply opacity-0;
+  transition: $long $ease-in-out-circ;
+  transform: translateY(2rem);
+
+  &.move-in {
+    @apply opacity-100;
+    transform: translateY(0);
+  }
+}

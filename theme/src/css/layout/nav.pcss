@@ -2,16 +2,15 @@
   @apply relative;
 
   .nav-menu {
-    @apply fixed w-full h-screen flex flex-col bg-gray-600 text-white;
-    top: 0;
-    left: 100vw;
-    padding: calc($header-height + $site-offset) $site-offset;
+    /* @apply fixed w-full h-screen flex flex-col bg-gray-600 text-white; */
+    @apply relative w-auto h-auto inset-auto flex p-0 bg-transparent;
+    /* padding: calc($header-height + $site-offset) $site-offset;
     .nav-menu-item {
       @apply ml-0;
-    }
+    } */
   }
 
-  .nav-burger {
+  /* .nav-burger {
     @apply flex flex-col justify-between;
     font-size: inherit;
     width: $burger-width;
@@ -29,8 +28,8 @@
     .nav-menu {
       transition: left $medium easeInOutCirc;
     }
-  }
-  &.active {
+  } */
+  /* &.active {
     .nav-menu {
       left: 10vw;
     }
@@ -46,14 +45,14 @@
         }
       }
     }
-  }
+  } */
 }
 
 @screen md {
   .nav-main {
     &.active {
       .nav-menu {
-        left: 20vw;
+        /* left: 20vw; */
       }
     }
   }
@@ -62,7 +61,7 @@
 @screen lg {
   .nav-main {
     .nav-menu {
-      @apply relative w-auto h-auto inset-auto flex-row p-0 bg-transparent;
+      @apply relative w-auto h-auto inset-auto flex p-0 bg-transparent;
       .nav-menu-item {
         @apply ml-4;
       }

@@ -1,26 +1,26 @@
 import { CoreModule } from '../core/core-module'
+import { CoreEventListener } from '../core/core-event'
 
 class Footer extends CoreModule {
   init() {
-    this.toggles = document.querySelectorAll('.toggle-footer')
+    let events = []
+    events.push(
+      new CoreEventListener('barba-before-enter', this.toggleFooter)
+    )
 
-    this.toggles.forEach(toggle => {
-      toggle.addEventListener('click', this.onToggle)
-    })
+    super.eventListeners = events
 
     return super.init()
   }
 
-  destroy() {
-    super.destroy()
+  toggleFooter() {
+    let element = document.querySelector('.toggle-footer-off')
 
-    this.toggles.forEach(toggle => {
-      toggle.removeEventListener('click', this.onToggle)
-    })
-  }
-
-  onToggle() {
-
+    if (element) {
+      document.getElementById('footer').classList.add('hidden')
+    } else {
+      document.getElementById('footer').classList.remove('hidden')
+    }
   }
 }
 

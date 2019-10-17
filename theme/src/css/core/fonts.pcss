@@ -10,17 +10,53 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .text-regular {
-  @apply text-lg;
+  @apply text-base;
 }
 
 .text-large {
-  @apply text-xl;
+  @apply text-lg;
 }
 
 .text-xlarge {
-  @apply text-2xl;
+  @apply text-xl;
 }
 
 .text-2xlarge {
-  @apply text-6xl;
+  @apply text-3xl;
+}
+
+@screen md {
+  .text-regular {
+    @apply text-lg;
+  }
+
+  .text-large {
+    @apply text-xl;
+  }
+
+  .text-xlarge {
+    @apply text-2xl;
+  }
+
+  .text-2xlarge {
+    @apply text-5xl;
+  }
+}
+
+@screen lg {
+  .text-regular {
+    @apply text-lg;
+  }
+
+  .text-large {
+    @apply text-xl;
+  }
+
+  .text-xlarge {
+    @apply text-2xl;
+  }
+
+  .text-2xlarge {
+    @apply text-6xl;
+  }
 }
