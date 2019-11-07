@@ -8,7 +8,7 @@ module.exports = {
       xl: '1.25rem',
       '2xl': '1.875rem',
       '3xl': '2.125rem',
-      '4xl': '2.5rem',
+      '4xl': '2.25rem',
       '5xl': '3.125rem',
       '6xl': '3.75rem'
     },
@@ -19,8 +19,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        white: '#F8F8F8',
-        black: '#0C0C0C'
+        white: '#FFF',
+        black: '#000'
       },
       spacing: {
         '1/12': '8.33333%',

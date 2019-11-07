@@ -4,16 +4,42 @@
 
 {% block main %}
 
-  <section class="hero">
-    <div class="container">
+  <div class="sesame-gate locked">
+
+  <section class="hero relative anim-fade-out">
+    <div class="container anim-perspective-wrapper absolute inset-0 flex items-center justify-center z-0">
+      <div class="w-1/2">
+        <div class="anim-perspective-card w-full" style="padding-top: 100%"></div>
+      </div>
+    </div>
+
+    <div class="container pointer-events-none relative z-10" style="transform: translateZ(400px)">
 
       <div class="row">
-        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto" style="max-width: 880px;">
-
-          <h1 class="text-2xlarge">
-            We are a new digital design studio passionate about making meaningful products for ambitious companies.
-          </h1>
-          <a class="text-regular" href="#">about the studio</a>
+        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto flex justify-center">
+          <div class="anim-hero">
+            <div class="anim-hero-logo block text-3xlarge absolute left-0 right-0 flex justify-center">
+            {# <div class="w-full"> #}
+              <span class="anime-hero-logo-item">fff</span>
+              <span class="anim-hero-shrinker left">u</span>
+              <span class="anim-hero-shrinker left">n</span>
+              <span class="anim-hero-shrinker left">c</span>
+              <span class="anim-hero-shrinker left">t</span>
+              <span class="anim-hero-shrinker left">i</span>
+              <span class="anim-hero-shrinker left">o</span>
+              <span class="anim-hero-shrinker left">n</span>
+              <span class="anime-hero-logo-item">.s</span>
+              <span class="anim-hero-shrinker right">t</span>
+              <span class="anim-hero-shrinker right">u</span>
+              <span class="anim-hero-shrinker right">d</span>
+              <span class="anim-hero-shrinker right">i</span>
+              <span class="anim-hero-shrinker right">o</span>
+            {# </div> #}
+            </div>
+            <div class="anim-hero-text block text-3xlarge hidden">
+              {{ entry.hero }}
+            </div>
+          </div>
 
         </div>
       </div>
@@ -21,15 +47,13 @@
     </div>
   </section>
 
-  {#  #}
-
-  <section class="section bg-white text-black">
+  <section class="section anim-bg-color text-black" data-anim-from-color="#0C0C0C" data-anim-to-color="#F8F8F8" data-anim-hook="0.65" data-anim-duration="400">
     <div class="container my-40">
 
-      <div class="mover row">
-        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto" style="max-width: 880px;">
+      <div class="row">
+        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto">
           <p class="text-xlarge">
-            With a skillset in brand strategy, design and code, we focus on getting clients to the next digital level. We create cum-in-your-cations, products and environments to (re)define brands, drive businesses and improve people’s lives.
+            {{ entry.introText }}
           </p>
         </div>
       </div>
@@ -39,38 +63,35 @@
 
   {#  #}
 
-  <section class="bg-white">
-    <div class="container--no-padding">
+  <section class="section">
+    <div class="container">
 
-      <div class="flex flex-wrap">
-        <div class="highlight w-full md:w-8/12 lg:w-4/12 mx-auto">
-          <div class="relative w-full z-10">
-            <figure class="w-full highlight-portrait">
-              <img src="https://source.unsplash.com/random/600x800" alt="">
-            </figure>
-            <div class="highlight-label section container absolute inset-0 z-20 flex flex-col justify-end">
-              <p class="w-full text-2xlarge font-bold">
-                A rich identity that sells.
-              </p>
-              <p class="w-full">
-                KAMU bikes & coffee
-              </p>
-            </div>
+      <div class="relative coming-soon-wrapper flex">
 
+        {% for highlight in entry.comingSoon.all() %}
+
+          <figure class="coming-soon relative overflow-hidden">
+            {% include "components/_image.twig" with {
+              image : highlight.image.first()
+            } %}
+          </figure>
+
+          <div class="coming-soon-label section container absolute inset-0 z-20">
+              <div class="h-full flex flex-col justify-between" style="width:25vw; max-width: 400px;">
+                <p class="highlight-text w-full text-xlarge mt-8">
+                  {{ highlight.text }}
+                </p>
+                <p class="highlight-caption text-3xlarge font-medium leading-tight">
+                  {{ highlight.caption }}
+                </p>
+              </div>
           </div>
-        </div>
 
-        <div class="highlight w-full md:w-8/12 lg:w-4/12 mx-auto bg-gray-400">
-          <figure class="w-full highlight-portrait">
-            <img src="" alt="">
-          </figure>
-        </div>
+        {% endfor %}
 
-        <div class="highlight w-full md:w-8/12 lg:w-4/12 mx-auto bg-gray-600">
-          <figure class="w-full highlight-portrait">
-            <img src="" alt="">
-          </figure>
-        </div>
+        {# <div class="coming-soon bg-red-500 z-0"></div>
+    <div class="coming-soon bg-blue-500 z-0"></div>
+    <div class="coming-soon bg-green-500 z-0"></div> #}
       </div>
 
     </div>
@@ -81,22 +102,39 @@
   <section class="section bg-white text-black">
     <div class="container my-40">
 
+      {% set article = craft.entries.section("articles").first() %}
+
+      {% set text = "" %}
+
+      {% for content in article.articleContent %}
+        {% if content.type == "text" %}
+          {% set text = text ~ " " ~ content.text | striptags %}
+        {% endif %}
+      {% endfor %}
+
+      {% set firstPart = text | slice(0, 144) %}
+      {% set secondPart = text | slice(144) %}
+      {% set index = secondPart | indexOf(".") %}
+      {% set secondPart = secondPart | slice(0, index) %}
+
       <div class="row lg:flex-row-reverse">
         <div class="col w-full mb-8 md:w-10/12 lg:w-5/12 md:mx-1/12 lg:ml-0 lg:mb-0">
-          <figure class="w-full landscape bg-yellow-200">
-            <img src="https://source.unsplash.com/random/800x600" alt="">
-          </figure>
+          {% include "components/_figure.twig" with {
+            image : article.thumbnail.first()
+          } %}
         </div>
         <div class="col w-full md:w-10/12 lg:w-4/12 md:mx-1/12 flex flex-col justify-center">
           <div>
-            <h3 class="text-xlarge mb-2">The start of fffunction studio</h3>
-            <p class="text-regular mb-4">We dig in deep, find the right approach and define goals that we’ll reach with a clear and thoughtful strategy.</p>
-            <button class="button">Read Article</button>
+            <h3 class="text-xlarge mb-2">{{ article.title }}</h3>
+            <p class="text-regular mb-4">{{ firstPart ~ secondPart }}...</p>
+            <a href="{{ article.url }}" class="button">Read Article</a>
           </div>
         </div>
       </div>
 
     </div>
   </section>
+
+  </div>
 
 {% endblock %}

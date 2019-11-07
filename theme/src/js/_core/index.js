@@ -27,9 +27,8 @@ class Core {
     eventBus.$on('barba-before-enter', () => {
       this.modules.forEach((module) => {
         if (module.reinit) {
-          console.log("TCL: Core -> init -> module", module)
           module.destroy()
-          module.init(module.options)
+          module.init()
         }
       })
 

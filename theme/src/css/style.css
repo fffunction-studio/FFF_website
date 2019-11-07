@@ -18,3 +18,8 @@
 @import "./layout/footer.pcss";
 @import "./layout/nav.pcss";
 /*  */
+@import "./animations/anim-underline.pcss";
+@import "./animations/anim-mouse-perspective.pcss";
+@import "./animations/anim-hero.pcss";
+@import "./animations/anim-open-sesame.pcss";
+

@@ -1,8 +1,8 @@
 .container {
   @apply mx-auto;
   max-width: $site-max-width;
-  padding-left: $site-offset;
-  padding-right: $site-offset;
+  padding-left: calc($site-offset / 2);
+  padding-right: calc($site-offset / 2);
 
   &--no-padding {
     @apply mx-auto;
@@ -28,4 +28,11 @@
 .col {
   padding-left: calc($gutter / 2);
   padding-right: calc($gutter / 2);
+}
+
+@screen md {
+  .container {
+    padding-left: $site-offset;
+    padding-right: $site-offset;
+  }
 }

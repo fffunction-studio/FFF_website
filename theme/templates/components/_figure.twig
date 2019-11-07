@@ -1,0 +1,40 @@
+{% if image %}
+
+  {% set orientation = image.assetOrientation.value %}
+
+  {% set transforms = [
+    {
+      handle: "sm",
+      width: 400
+    }, {
+      handle: "md",
+      width: 800
+    }, {
+      handle: "lg",
+      width: 1600
+    }, {
+      handle: "fw",
+      width: 2560
+    }
+  ] %}
+  {% set srcset = [] %}
+
+  {# if output width is smaller than or equal to the original image width #}
+  {% for transform in transforms %}
+    {% if transform.width <= image.width %}
+      {% set srcset = srcset | merge([siteUrl ~ image.url(transform.handle) ~ " " ~ transform.width ~ "w"]) %}
+    {% endif %}
+  {% endfor %}
+
+  {# output srcset #}
+
+  <figure class="{% if orientation is not null %}{{ orientation }}{% else %}portrait{% endif %}">
+    <img src="{{ siteUrl }}{{ image.url() }}" srcset="{{ srcset|join(', ') }}" sizes="50vw" alt="">
+  </figure>
+
+{% else %}
+
+  <figure class="portrait bg-red-500">
+  </figure>
+
+{% endif %}

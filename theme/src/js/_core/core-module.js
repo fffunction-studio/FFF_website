@@ -1,4 +1,5 @@
 import { eventBus } from './event-bus'
+import { Promise } from 'q'
 
 class CoreModule {
   constructor() {

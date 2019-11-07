@@ -1,0 +1,69 @@
+{% extends "core/base.twig" %}
+
+{% block main %}
+
+  <section class="section header-offset">
+    <div class="container">
+
+      <div class="row">
+        <div class="col w-full md:w-10/12 md:mx-1/12 lg:w-6/12 xl:w-5/12 lg:ml-2/12">
+          <h1 class="font-medium text-xlarge">
+            {{ entry.title }}
+          </h1>
+
+          {% for content in entry.articleContent %}
+
+            {% if content.type == "text" %}
+
+              <div class="anim-move-in my-8 text-large article-content-text">
+                {{ content.text }}
+              </div>
+
+            {% elseif content.type == "images" %}
+
+              {% if content.images | length == 1 %}
+
+                <div class="anim-move-in w-full my-8">
+                  {% include "components/_image.twig" with {
+                    image : content.images.first()
+                  } %}
+                </div>
+
+              {% elseif content.images|length == 2 %}
+
+                <div class="row my-8">
+
+                  <div class="col anim-move-in w-full mb-8 md:w-1/2 md:mb-0">
+                    {% include "components/_image.twig" with {
+                      image : content.images.all()[0]
+                    } %}
+                  </div>
+
+                  <div class="col anim-move-in w-full md:w-1/2" data-anim-delay="200">
+                    {% include "components/_image.twig" with {
+                      image : content.images.all()[1]
+                    } %}
+                  </div>
+
+                </div>
+
+              {% endif %}
+
+            {% elseif content.type == "html" %}
+
+              <div class="anim-move-in my-8 font-medium">
+
+                {{ content.html|raw }}
+
+              </div>
+
+            {% endif %}
+
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+{% endblock %}

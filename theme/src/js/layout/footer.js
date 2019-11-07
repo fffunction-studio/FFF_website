@@ -7,9 +7,10 @@ class Footer extends CoreModule {
     events.push(
       new CoreEventListener('barba-before-enter', this.toggleFooter)
     )
-
     super.eventListeners = events
 
+    this.toggleFooter()
+    
     return super.init()
   }
 

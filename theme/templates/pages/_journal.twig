@@ -4,11 +4,74 @@
 
 {% block main %}
 
-  <section class="section header-offset">
+  <section class="section header-offset text-white">
     <div class="container">
 
-      journal
-      
+      <div class="row">
+        <div class="col w-full md:w-10/12 lg:w-8/12 md:ml-1/12 lg:ml-2/12" style="max-width: 880px;">
+
+          <h1 class="text-3xlarge">
+            We aim to be transparant and love to share our process and knowledge with you.
+          </h1>
+          <p class="text-large mt-4">
+            *Sorry, currently in Dutch, use Google Translate for the time being :)
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+
+      {% set articles = craft.entries.section("articles").all() %}
+      {% for item in articles %}
+
+        {% set text = "" %}
+
+        {% for content in item.articleContent %}
+          {% if content.type == "text" %}
+            {% set text = text ~ " " ~ content.text|striptags %}
+          {% endif %}
+        {% endfor %}
+
+        {% set firstPart = text|slice(0, 144) %}
+        {% set secondPart = text|slice(144) %}
+        {% set index = secondPart|indexOf('.') %}
+        {% set secondPart = secondPart|slice(0, index) %}
+
+        <article class="section anim-move-in mb-24">
+          <div class="row">
+            <div class="col w-full md:w-10/12 md:mx-1/12 lg:w-5/12 lg:ml-2/12 text-white leading-tight fade-in text-white md:text-lg" style="max-width: 920px">
+
+              <a class="text-white" href="{{ item.url }}">
+                <p class="text-base opacity-50 mb-2">
+                  {{ item.postDate | date("F d, Y") }}
+                </p>
+
+                <div class="w-full mb-4">
+                  <img src="" alt="">
+                </div>
+                <h2 class="mb-4 text-xlarge">
+                  {{ item.title }}
+                </h2>
+                <p class="mb-2 text-large">
+                  {{ firstPart ~ secondPart }}...
+                </p>
+              </a>
+
+              <p class="text-white text-right">
+                <a class="text-white anim-underline-in font-medium" href="{{ item.url }}">Lees verder</a>
+              </p>
+
+            </div>
+          </div>
+        </article>
+
+      {% endfor %}
+
     </div>
   </section>
 
