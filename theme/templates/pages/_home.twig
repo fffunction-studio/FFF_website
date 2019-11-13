@@ -4,136 +4,170 @@
 
 {% block main %}
 
-  <div class="sesame-gate locked">
+  <div class="sesame-gate">
 
-  <section class="hero relative anim-fade-out">
-    <div class="container anim-perspective-wrapper absolute inset-0 flex items-center justify-center z-0">
-      <div class="w-1/2">
-        <div class="anim-perspective-card w-full" style="padding-top: 100%"></div>
-      </div>
-    </div>
-
-    <div class="container pointer-events-none relative z-10" style="transform: translateZ(400px)">
-
-      <div class="row">
-        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto flex justify-center">
-          <div class="anim-hero">
-            <div class="anim-hero-logo block text-3xlarge absolute left-0 right-0 flex justify-center">
-            {# <div class="w-full"> #}
-              <span class="anime-hero-logo-item">fff</span>
-              <span class="anim-hero-shrinker left">u</span>
-              <span class="anim-hero-shrinker left">n</span>
-              <span class="anim-hero-shrinker left">c</span>
-              <span class="anim-hero-shrinker left">t</span>
-              <span class="anim-hero-shrinker left">i</span>
-              <span class="anim-hero-shrinker left">o</span>
-              <span class="anim-hero-shrinker left">n</span>
-              <span class="anime-hero-logo-item">.s</span>
-              <span class="anim-hero-shrinker right">t</span>
-              <span class="anim-hero-shrinker right">u</span>
-              <span class="anim-hero-shrinker right">d</span>
-              <span class="anim-hero-shrinker right">i</span>
-              <span class="anim-hero-shrinker right">o</span>
-            {# </div> #}
-            </div>
-            <div class="anim-hero-text block text-3xlarge hidden">
-              {{ entry.hero }}
-            </div>
-          </div>
-
+    <section class="hero relative anim-fade-out">
+      <div class="container anim-perspective-wrapper absolute inset-0 flex items-center justify-center z-0" style="max-width: 2000px">
+        <div class="w-1/2">
+          <div class="anim-perspective-card w-full" style="padding-top: 100%"></div>
         </div>
       </div>
 
-    </div>
-  </section>
+      <div class="container pointer-events-none relative z-10" style="transform: translateZ(400px)">
 
-  <section class="section anim-bg-color text-black" data-anim-from-color="#0C0C0C" data-anim-to-color="#F8F8F8" data-anim-hook="0.65" data-anim-duration="400">
-    <div class="container my-40">
-
-      <div class="row">
-        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto">
-          <p class="text-xlarge">
-            {{ entry.introText }}
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  {#  #}
-
-  <section class="section">
-    <div class="container">
-
-      <div class="relative coming-soon-wrapper flex">
-
-        {% for highlight in entry.comingSoon.all() %}
-
-          <figure class="coming-soon relative overflow-hidden">
-            {% include "components/_image.twig" with {
-              image : highlight.image.first()
-            } %}
-          </figure>
-
-          <div class="coming-soon-label section container absolute inset-0 z-20">
-              <div class="h-full flex flex-col justify-between" style="width:25vw; max-width: 400px;">
-                <p class="highlight-text w-full text-xlarge mt-8">
-                  {{ highlight.text }}
-                </p>
-                <p class="highlight-caption text-3xlarge font-medium leading-tight">
-                  {{ highlight.caption }}
-                </p>
+        <div class="row">
+          <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto flex justify-center">
+            <div class="anim-hero">
+              <div class="anim-hero-logo block text-3xlarge absolute left-0 right-0 flex justify-center">
+                {# <div class="w-full"> #}
+                <span class="anime-hero-logo-item">fff</span>
+                <span class="anim-hero-shrinker left">u</span>
+                <span class="anim-hero-shrinker left">n</span>
+                <span class="anim-hero-shrinker left">c</span>
+                <span class="anim-hero-shrinker left">t</span>
+                <span class="anim-hero-shrinker left">i</span>
+                <span class="anim-hero-shrinker left">o</span>
+                <span class="anim-hero-shrinker left">n</span>
+                <span class="anime-hero-logo-item">.s</span>
+                <span class="anim-hero-shrinker right">t</span>
+                <span class="anim-hero-shrinker right">u</span>
+                <span class="anim-hero-shrinker right">d</span>
+                <span class="anim-hero-shrinker right">i</span>
+                <span class="anim-hero-shrinker right">o</span>
+                {# </div> #}
               </div>
-          </div>
+              <div class="anim-hero-text block text-3xlarge hidden">
+                {{ entry.hero }}
+              </div>
+            </div>
 
+          </div> 
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section anim-bg-color text-black" data-anim-from-color="#000000" data-anim-to-color="#FFFFFF" data-anim-hook="0.65" data-anim-duration="400">
+      <div class="container my-20 lg:my-40 xxl:my-56">
+
+        <div class="row">
+          <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto">
+            <p class="text-xlarge">
+              {{ entry.introText }}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    {#  #}
+
+    <section class="section text-black mb-20 lg:mb xxl:mb-56">
+      <div class="container">
+
+        <div class="relative coming-soon-wrapper row">
+
+          {% for highlight in entry.comingSoon.all() %}
+
+            {% set width = "w-full md:w-4/12" %}
+            {% set orientation = "landscape" %}
+
+            {% if loop.index0 == 0 %}
+              {% set width = "w-full md:w-5/12" %}
+              {% set orientation = "landscape" %}
+            {% elseif loop.index0 == 1 %}
+              {% set width = 'w-full md:w-3/12' %}
+              {% set orientation = "portrait" %}
+            {% endif %}
+
+            <div class="col coming-soon mb-16 md:mb-0 {{ width }}">
+              {% if loop.index0 == 1 %}
+
+                {% include "components/_figure.twig" with {
+                  image : highlight.image.one(),
+                  orientation: orientation,
+                  figureClass: "hidden md:block"
+                } %}
+
+                {% include "components/_figure.twig" with {
+                  image : highlight.image.one(),
+                  orientation: "landscape",
+                  figureClass: "block md:hidden"
+                } %}
+
+              {% else %}
+
+                {% include "components/_figure.twig" with {
+                  image : highlight.image.one(),
+                  orientation: orientation
+                } %}
+
+              {% endif %}
+
+              <div class="coming-soon-label mt-4">
+                <div class="coming-soon-text opacity-50 text-large">
+                  {{ highlight.text }}
+                </div>
+                <div class="coming-soon-caption text-xlarge font-medium">
+                  {{ highlight.caption }}
+                </div>
+              </div>
+            </div>
+
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+
+    {#  #}
+
+    <section class="section bg-gray-light text-black">
+      <div class="container my-20 lg:my-40 xxl:my-56">
+
+        {% set article = craft.entries.section("articles").first() %}
+
+        {% set text = "" %}
+
+        {% for content in article.articleContent %}
+          {% if content.type == "text" %}
+            {% set text = text ~ " " ~ content.text | striptags %}
+          {% endif %}
         {% endfor %}
 
-        {# <div class="coming-soon bg-red-500 z-0"></div>
-    <div class="coming-soon bg-blue-500 z-0"></div>
-    <div class="coming-soon bg-green-500 z-0"></div> #}
-      </div>
+        {% set firstPart = text | slice(0, 144) %}
+        {% set secondPart = text | slice(144) %}
+        {% set index = secondPart | indexOf(".") %}
+        {% set secondPart = secondPart | slice(0, index) %}
 
-    </div>
-  </section>
-
-  {#  #}
-
-  <section class="section bg-white text-black">
-    <div class="container my-40">
-
-      {% set article = craft.entries.section("articles").first() %}
-
-      {% set text = "" %}
-
-      {% for content in article.articleContent %}
-        {% if content.type == "text" %}
-          {% set text = text ~ " " ~ content.text | striptags %}
-        {% endif %}
-      {% endfor %}
-
-      {% set firstPart = text | slice(0, 144) %}
-      {% set secondPart = text | slice(144) %}
-      {% set index = secondPart | indexOf(".") %}
-      {% set secondPart = secondPart | slice(0, index) %}
-
-      <div class="row lg:flex-row-reverse">
-        <div class="col w-full mb-8 md:w-10/12 lg:w-5/12 md:mx-1/12 lg:ml-0 lg:mb-0">
-          {% include "components/_figure.twig" with {
-            image : article.thumbnail.first()
-          } %}
-        </div>
-        <div class="col w-full md:w-10/12 lg:w-4/12 md:mx-1/12 flex flex-col justify-center">
-          <div>
-            <h3 class="text-xlarge mb-2">{{ article.title }}</h3>
-            <p class="text-regular mb-4">{{ firstPart ~ secondPart }}...</p>
-            <a href="{{ article.url }}" class="button">Read Article</a>
+        <div class="row">
+          <div class="col anim-underline-in-trigger w-full mb-4 md:mb-0 md:w-6/12 lg:w-5/12 lg:ml-2/12">
+            <a href="{{ article.url }}">
+              {% include "components/_figure.twig" with {
+                image : article.thumbnail.first(),
+                orientation: "landscape"
+              } %}
+            </a>
+          </div>
+          <div class="col w-full md:w-6/12 lg:w-4/12 flex flex-wrap">
+            <div class="w-full self-start">
+              <span class="text-regular text-gray">
+                {{ article.postDate | date("F d, Y") }}
+              </span>
+              <h3 class="text-2xlarge font-medium my-2">
+                <a class="anim-underline-in anim-underline-in-target text-black" href="{{ article.url }}">{{ article.title }}</a>
+              </h3>
+            </div>
+            <div class="w-full self-end">
+              <a class="anim-underline-in text-black text-regular" href="{{ article.url }}">Lees verder</a>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
-  </section>
+      </div>
+    </section>
 
   </div>
 

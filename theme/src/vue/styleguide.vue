@@ -35,10 +35,16 @@
                 <span class="font-bold">desktop</span>
               </div>
             </div>
-            <div class="bg-teal-200 hidden xl:flex justify-center">
+            <div class="bg-teal-200 hidden xl:flex xxl:hidden justify-center">
               <div class="bg-teal-400 p-2 text-white">
                 xl
                 <span class="font-bold">wide</span>
+              </div>
+            </div>
+            <div class="bg-teal-200 hidden xxl:flex justify-center">
+              <div class="bg-teal-400 p-2 text-white">
+                xxl
+                <span class="font-bold">super wide</span>
               </div>
             </div>
           </div>

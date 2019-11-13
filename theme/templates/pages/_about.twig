@@ -37,10 +37,10 @@
   {#  #}
 
   <section class="section text-white">
-    <div class="container my-16 md:my-20 lg:my-40">
+    <div class="container my-16 md:my-20 lg:my-40 xxl:my-56">
 
       <div class="row anim-move-in ">
-        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto" style="max-width: 880px;">
+        <div class="col w-full md:w-10/12 lg:w-8/12 mx-auto">
 
           <p class="text-xlarge">
             {{ entry.introText }}
@@ -55,7 +55,7 @@
   {#  #}
 
   <section class="section bg-white text-black" data-anim-from-color="#0C0C0C" data-anim-to-color="#F8F8F8" data-anim-hook="0.75">
-    <div class="container my-16 md:my-20 lg:my-40">
+    <div class="container my-16 md:my-20 lg:my-40 xxl:my-56">
 
       {% for item in entry.whatWeDo %}
 
@@ -74,7 +74,7 @@
             </div>
             <div class="col w-full mt-8 md:w-5/12 lg:w-4/12 lg:mr-2/12 md:mt-0">
               <p class="text-regular opacity-50">
-                {{ item.keywords }}
+                {{ item.keywords|nl2br }}
               </p>
             </div>
           </div>

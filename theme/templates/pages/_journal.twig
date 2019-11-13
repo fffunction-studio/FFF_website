@@ -8,14 +8,15 @@
     <div class="container">
 
       <div class="row">
-        <div class="col w-full md:w-10/12 lg:w-8/12 md:ml-1/12 lg:ml-2/12" style="max-width: 880px;">
+        <div class="col w-full md:w-10/12 lg:w-8/12 xxl:w-7/12 md:ml-1/12 lg:ml-2/12">
+
+          <p class="text-regular mb-4">
+            Journal
+          </p>
 
           <h1 class="text-3xlarge">
             We aim to be transparant and love to share our process and knowledge with you.
           </h1>
-          <p class="text-large mt-4">
-            *Sorry, currently in Dutch, use Google Translate for the time being :)
-          </p>
 
         </div>
       </div>
@@ -25,53 +26,60 @@
 
   <section class="section">
     <div class="container">
-
-      {% set articles = craft.entries.section("articles").all() %}
-      {% for item in articles %}
-
-        {% set text = "" %}
-
-        {% for content in item.articleContent %}
-          {% if content.type == "text" %}
-            {% set text = text ~ " " ~ content.text|striptags %}
-          {% endif %}
-        {% endfor %}
-
-        {% set firstPart = text|slice(0, 144) %}
-        {% set secondPart = text|slice(144) %}
-        {% set index = secondPart|indexOf('.') %}
-        {% set secondPart = secondPart|slice(0, index) %}
-
-        <article class="section anim-move-in mb-24">
+      <div class="row">
+        <div class="col w-full md:w-10/12 md:ml-2/12">
           <div class="row">
-            <div class="col w-full md:w-10/12 md:mx-1/12 lg:w-5/12 lg:ml-2/12 text-white leading-tight fade-in text-white md:text-lg" style="max-width: 920px">
 
-              <a class="text-white" href="{{ item.url }}">
-                <p class="text-base opacity-50 mb-2">
-                  {{ item.postDate | date("F d, Y") }}
-                </p>
+            {% set articles = craft.entries.section("articles").all() %}
 
-                <div class="w-full mb-4">
-                  <img src="" alt="">
+            {% for item in articles %}
+
+              {% set text = "" %}
+
+              {% for content in item.articleContent %}
+                {% if content.type == "text" %}
+                  {% set text = text ~ " " ~ content.text | striptags %}
+                {% endif %}
+              {% endfor %}
+
+              {% set firstPart = text | slice(0, 144) %}
+              {% set secondPart = text | slice(144) %}
+              {% set index = secondPart | indexOf(".") %}
+              {% set secondPart = secondPart | slice(0, index) %}
+
+              <article class="col section anim-move-in w-full md:w-6/12 mb-12">
+                <div class="text-white leading-tight fade-in text-white text-regular" style="max-width: 920px">
+
+                  <a class="text-white anim-underline-in-parent-trigger" href="{{ item.url }}">
+                    <p class="text-base text-gray mb-2">
+                      {{ item.postDate | date("F d, Y") }}
+                    </p>
+                    <h2 class="mb-8 text-xlarge">
+                      <span class="anim-underline-in calc-this">
+                        {{ item.title }}
+                      </span>
+                    </h2>
+                    {% include "components/_figure.twig" with {
+                      image : item.thumbnail.first(),
+                      orientation: "landscape"
+                    } %}
+                    <p class="my-8 text-large">
+                      {{ firstPart ~ secondPart }}...
+                    </p>
+                  </a>
+
+                  <p class="">
+                    <a class="text-gray anim-underline-in" href="{{ item.url }}">Lees verder</a>
+                  </p>
+
                 </div>
-                <h2 class="mb-4 text-xlarge">
-                  {{ item.title }}
-                </h2>
-                <p class="mb-2 text-large">
-                  {{ firstPart ~ secondPart }}...
-                </p>
-              </a>
+              </article>
 
-              <p class="text-white text-right">
-                <a class="text-white anim-underline-in font-medium" href="{{ item.url }}">Lees verder</a>
-              </p>
+            {% endfor %}
 
-            </div>
           </div>
-        </article>
-
-      {% endfor %}
-
+        </div>
+      </div>
     </div>
   </section>
 

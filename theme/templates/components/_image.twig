@@ -1,6 +1,8 @@
 {% if image %}
 
-  {% set orientation = image.assetOrientation.value %}
+  {% if orientation is not defined %}
+    {% set orientation = image.assetOrientation.value %}
+  {% endif %}
 
   {% set transforms = [
     {

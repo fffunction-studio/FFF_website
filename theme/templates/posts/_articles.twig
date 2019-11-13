@@ -2,12 +2,15 @@
 
 {% block main %}
 
-  <section class="section header-offset">
+  <section class="section header-offset bg-white text-black">
     <div class="container">
 
       <div class="row">
-        <div class="col w-full md:w-10/12 md:mx-1/12 lg:w-6/12 xl:w-5/12 lg:ml-2/12">
-          <h1 class="font-medium text-xlarge">
+        <div class="col w-full md:w-10/12 md:ml-1/12 lg:w-8/12 lg:ml-2/12">
+          <p class="text-regular mb-4">
+            {{ entry.postDate|date("F d, Y")}}
+          </p>
+          <h1 class="font-bold text-2xlarge w-9/12">
             {{ entry.title }}
           </h1>
 
@@ -15,7 +18,7 @@
 
             {% if content.type == "text" %}
 
-              <div class="anim-move-in my-8 text-large article-content-text">
+              <div class="anim-move-in my-16 text-large article-content-text w-9/12">
                 {{ content.text }}
               </div>
 
@@ -23,7 +26,7 @@
 
               {% if content.images | length == 1 %}
 
-                <div class="anim-move-in w-full my-8">
+                <div class="anim-move-in w-full my-16">
                   {% include "components/_image.twig" with {
                     image : content.images.first()
                   } %}
@@ -63,6 +66,33 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  {% set articles = craft.entries.section("articles").all() %}
+
+  {% set index = 0 %}
+
+  {% for item in articles %}
+
+    {% if item.id == entry.id %}
+      {% set index = loop.index0 %}
+    {% endif %}
+
+  {% endfor %}
+
+  {% set indexNext = index + 1 %}
+  {% if indexNext >= articles | length %}
+    {% set indexNext = 0 %}
+  {% endif %}
+
+    <section class="section bg-white text-black text-xlarge">
+    <div class="container">
+      <div class="row">
+        <div class="col w-full lg:w-10/12 lg:ml-2/12 mb-8">
+          <a class="anim-underline-in text-black" href="{{ articles[indexNext].url}}">Volgend artikel</a>
+        </div>
+      </div>
     </div>
   </section>
 

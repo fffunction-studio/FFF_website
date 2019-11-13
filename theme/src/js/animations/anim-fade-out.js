@@ -5,7 +5,7 @@ class AnimFadeOut extends CoreModule {
   init(options) {
     const target = options.target || '.anim-fade-out'
     const elements = document.querySelectorAll(target)
-    const scenes = []
+    let scenes = []
 
     elements.forEach((element) => {
       const delay =
@@ -16,11 +16,11 @@ class AnimFadeOut extends CoreModule {
       scenes.push(
         new CoreScrollScene({
           triggerElement: element,
-          triggerHook: 0.75,
+          triggerHook: 0.01,
+          log: true,
           offset: () => {
-            return element.offsetHeight
+            return (window.innerHeight * 0.5)
           },
-          duration: '100px',
           enter: (event) => {
             anime({
               targets: element,

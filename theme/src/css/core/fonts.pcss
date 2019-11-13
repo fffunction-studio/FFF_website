@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5, h6 {
   @apply text-2xl leading-tight;
 }
 
+.text-footer {
+  @apply text-xl;
+}
+
 @screen md {
   .text-regular {
     @apply text-lg;
@@ -39,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .text-xlarge {
-    @apply text-2xl;
+    @apply text-15xl;
   }
 
   .text-2xlarge {
@@ -48,6 +52,10 @@ h1, h2, h3, h4, h5, h6 {
 
   .text-3xlarge {
     @apply text-5xl;
+  }
+
+  .text-footer {
+    @apply text-2xl;
   }
 }
 
@@ -73,11 +81,53 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@screeen xl {
+  .text-footer {
+    @apply text-3xl;
+  }
+}
+
+/* text-xl md:text-2xl xl:text-3xl */
+@media (min-width: 1600px) {
+  .text-regular {
+    font-size: calc((100vw * 18) / 1600);
+  }
+
+  .text-large {
+    font-size: calc((100vw * 20) / 1600);
+  }
+
+  .text-xlarge {
+    font-size: calc((100vw * 30) / 1600);
+  }
+
+  .text-2xlarge {
+    font-size: calc((100vw * 45) / 1600);
+  }
+
+  .text-3xlarge {
+    font-size: calc((100vw * 60) / 1600);
+  }
+
+  .text-footer {
+    font-size: calc((100vw * 40) / 1600);
+  }
+}
+
 .article-content-text {
   > * {
     @apply mb-6;
   }
   ul {
-    @apply list-disc;
+    @apply list-disc ml-2;
   }
+}
+
+@screen md {
+  .article-content-text {
+
+  ul {
+    @apply list-disc ml-0;
+  }
+}
 }

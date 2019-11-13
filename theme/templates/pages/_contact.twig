@@ -16,14 +16,14 @@
         <div class="row my-16 md:my-20 lg:my-40">
           <div class="col w-full md:w-6/12 lg:w-5/12 lg:ml-2/12">
             <div class="mb-8 md:mb-12 lg:mb-16">
-              <p class="text-2xlarge font-medium">
+              <p class="text-footer font-medium">
                 {{ footer.footerText|nl2br }}
               </p>
             </div>
           </div>
           <div class="col w-full md:w-6/12 lg:w-5/12">
             <div class="mb-8 md:mb-12 lg:mb-16">
-              <p class="text-2xlarge">
+              <p class="text-footer">
                 <a class="anim-underline-in leading-tight" href="tel:{{ contact.phoneNumber }}">{{ contact.phoneNumber }}</a><br>
                 <a class="anim-underline-in leading-tight" href="mailto:{{ contact.emailAddress }}">{{ contact.emailAddress }}</a>
               </p>
@@ -31,13 +31,13 @@
           </div>
           <div class="col w-full md:w-6/12 lg:w-5/12 lg:ml-2/12">
             <div class="mb-8 md:mb-12 lg:mb-0">
-              <p class="text-2xlarge">
+              <p class="text-footer">
                 {{ contact.address|nl2br }}
               </p>
             </div>
           </div>
           <div class="col w-full md:w-6/12 lg:w-5/12">
-            <p class="text-2xlarge">
+            <p class="text-footer">
 
               {% for item in footer.socialMedia.all() %}
 

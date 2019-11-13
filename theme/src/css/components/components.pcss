@@ -9,7 +9,7 @@ a.button {
     }
 
     &:focus {
-        @apply bg-gray-600;
+        /* @apply bg-gray-600; */
         outline: none;
         box-shadow: none;
         transform: translateY(0);
@@ -18,11 +18,30 @@ a.button {
 
 table {
   tr:not(:last-child) {
-    @apply border-b border-gray-300
+    @apply border-b border-gray-light;
   }
 }
 
-.coming-soon-wrapper {
+.coming-soon {  
+  &:hover {
+    .coming-soon-caption {
+
+    }
+  }
+  &.pull-up {
+    margin-top: -3.75vw;
+  }
+}
+
+@media (min-width: 1600px) {
+  .coming-soon {
+    &.pull-up {
+      margin-top: calc(16px * -3.75);
+    }
+  }
+}
+
+/* .coming-soon-wrapper {
   width: 100%;
   height: 45vw;
   max-height: calc(1600px * 0.45);
@@ -45,4 +64,4 @@ table {
   &:hover {
     background: #00000000;
   }
-}
+} */

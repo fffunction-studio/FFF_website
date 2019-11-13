@@ -1,6 +1,8 @@
 {% if image %}
 
-  {% set orientation = image.assetOrientation.value %}
+    {% if orientation is not defined %}
+    {% set orientation = image.assetOrientation.value %}
+  {% endif %}
 
   {% set transforms = [
     {
@@ -28,7 +30,7 @@
 
   {# output srcset #}
 
-  <figure class="{% if orientation is not null %}{{ orientation }}{% else %}portrait{% endif %}">
+  <figure class="{% if figureClass is defined %}{{ figureClass }} {% endif %}{% if orientation is not null %}{{ orientation }}{% else %}portrait{% endif %}">
     <img src="{{ siteUrl }}{{ image.url() }}" srcset="{{ srcset|join(', ') }}" sizes="50vw" alt="">
   </figure>
 

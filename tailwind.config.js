@@ -6,10 +6,11 @@ module.exports = {
       base: '1rem',
       lg: '1.125rem',
       xl: '1.25rem',
+      '15xl': '1.5rem',
       '2xl': '1.875rem',
-      '3xl': '2.125rem',
-      '4xl': '2.25rem',
-      '5xl': '3.125rem',
+      '3xl': '2.5rem',
+      '4xl': '2.8125rem',
+      '5xl': '3.25rem',
       '6xl': '3.75rem'
     },
     fontFamily: {
@@ -20,11 +21,17 @@ module.exports = {
     extend: {
       colors: {
         white: '#FFF',
-        black: '#000'
+        black: '#000',
+        'gray-light': '#EBEBEB',
+        'gray': '#9E9E9E',
+      },
+      screens: {
+        'xxl': '100rem'
       },
       spacing: {
         '1/12': '8.33333%',
         '2/12': '16.66667%',
+        '5/24': '20.83333%',
         '3/12': '25%',
         '4/12': '33.33333%',
         '5/12': '41.66667%',
