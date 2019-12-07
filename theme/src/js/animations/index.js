@@ -6,5 +6,6 @@ import { animBgColor } from "./anim-bg-color";
 import { animUnderlineIn } from "./anim-underline-in";
 import { animMousePerspective } from "./anim-mouse-perspective";
 import { animOpenSesame } from "./anim-open-sesame";
+import { animLogo } from "./anim-logo";
 
-export { animHero, animOpenSesame, animMoveIn, animFadeIn, animFadeOut, animBgColor, animUnderlineIn, animMousePerspective }
+export { animLogo, animHero, animOpenSesame, animMoveIn, animFadeIn, animFadeOut, animBgColor, animUnderlineIn, animMousePerspective }

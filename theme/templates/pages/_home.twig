@@ -20,20 +20,20 @@
             <div class="anim-hero">
               <div class="anim-hero-logo block text-3xlarge absolute left-0 right-0 flex justify-center">
                 {# <div class="w-full"> #}
-                <span class="anime-hero-logo-item">fff</span>
-                <span class="anim-hero-shrinker left">u</span>
-                <span class="anim-hero-shrinker left">n</span>
-                <span class="anim-hero-shrinker left">c</span>
-                <span class="anim-hero-shrinker left">t</span>
-                <span class="anim-hero-shrinker left">i</span>
-                <span class="anim-hero-shrinker left">o</span>
-                <span class="anim-hero-shrinker left">n</span>
-                <span class="anime-hero-logo-item">.s</span>
-                <span class="anim-hero-shrinker right">t</span>
-                <span class="anim-hero-shrinker right">u</span>
-                <span class="anim-hero-shrinker right">d</span>
-                <span class="anim-hero-shrinker right">i</span>
-                <span class="anim-hero-shrinker right">o</span>
+                <span class="anime-hero-logo-item overflow-hidden">fff</span>
+                <span class="anim-hero-shrinker left overflow-hidden">u</span>
+                <span class="anim-hero-shrinker left overflow-hidden">n</span>
+                <span class="anim-hero-shrinker left overflow-hidden">c</span>
+                <span class="anim-hero-shrinker left overflow-hidden">t</span>
+                <span class="anim-hero-shrinker left overflow-hidden">i</span>
+                <span class="anim-hero-shrinker left overflow-hidden">o</span>
+                <span class="anim-hero-shrinker left overflow-hidden">n</span>
+                <span class="anime-hero-logo-item overflow-hidden">.s</span>
+                <span class="anim-hero-shrinker right overflow-hidden">t</span>
+                <span class="anim-hero-shrinker right overflow-hidden">u</span>
+                <span class="anim-hero-shrinker right overflow-hidden">d</span>
+                <span class="anim-hero-shrinker right overflow-hidden">i</span>
+                <span class="anim-hero-shrinker right overflow-hidden">o</span>
                 {# </div> #}
               </div>
               <div class="anim-hero-text block text-3xlarge hidden">
@@ -81,7 +81,9 @@
               {% set orientation = "portrait" %}
             {% endif %}
 
-            <div class="col coming-soon mb-16 md:mb-0 {{ width }}">
+            <div class="col coming-soon relative mb-16 md:mb-0 {{ width }}">
+              <div class="coming-soon-announce absolute text-regular">Coming soon...</div>
+
               {% if loop.index0 == 1 %}
 
                 {% include "components/_figure.twig" with {

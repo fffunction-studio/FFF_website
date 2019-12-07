@@ -1,7 +1,10 @@
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 /*  */
+/* purgecss start ignore */
+
 @import "./core/variables.pcss";
 @import "./core/mixins.pcss";
 @import "./core/grid.pcss";
@@ -21,5 +24,7 @@
 @import "./animations/anim-underline.pcss";
 @import "./animations/anim-mouse-perspective.pcss";
 @import "./animations/anim-hero.pcss";
+@import "./animations/anim-logo.pcss";
 @import "./animations/anim-open-sesame.pcss";
 
+/* purgecss end ignore */

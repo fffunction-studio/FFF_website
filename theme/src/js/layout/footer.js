@@ -16,6 +16,7 @@ class Footer extends CoreModule {
 
   toggleFooter() {
     let element = document.querySelector('.toggle-footer-off')
+    console.log("TCL: Footer -> toggleFooter -> element", element)
 
     if (element) {
       document.getElementById('footer').classList.add('hidden')

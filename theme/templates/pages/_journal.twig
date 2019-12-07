@@ -5,7 +5,7 @@
 {% block main %}
 
   <section class="section header-offset text-white">
-    <div class="container">
+    <div class="container md:mt-20">
 
       <div class="row">
         <div class="col w-full md:w-10/12 lg:w-8/12 xxl:w-7/12 md:ml-1/12 lg:ml-2/12">
@@ -14,8 +14,8 @@
             Journal
           </p>
 
-          <h1 class="text-3xlarge">
-            We aim to be transparant and love to share our process and knowledge with you.
+          <h1 class="text-3xlarge font-normal">
+            {{ entry.introText }}
           </h1>
 
         </div>
@@ -42,12 +42,21 @@
                 {% endif %}
               {% endfor %}
 
-              {% set firstPart = text | slice(0, 144) %}
-              {% set secondPart = text | slice(144) %}
-              {% set index = secondPart | indexOf(".") %}
-              {% set secondPart = secondPart | slice(0, index) %}
+              {% set text  = text | trim %}
 
-              <article class="col section anim-move-in w-full md:w-6/12 mb-12">
+              {% set textPart = text | slice(0, 150) %}
+
+              {% set explodedParts = textPart | split(" ") %}
+              {% set explodedParts = explodedParts | slice(0, explodedParts|length - 1) %}
+
+              {% set mergedParts = "" %}
+
+
+              {% for part in explodedParts %}
+                {% set mergedParts = mergedParts ~ " " ~ part %}
+              {% endfor %} 
+
+              {# <article class="col section anim-move-in w-full md:w-6/12 mb-12">
                 <div class="text-white leading-tight fade-in text-white text-regular" style="max-width: 920px">
 
                   <a class="text-white anim-underline-in-parent-trigger" href="{{ item.url }}">
@@ -66,6 +75,35 @@
                     <p class="my-8 text-large">
                       {{ firstPart ~ secondPart }}...
                     </p>
+                  </a>
+
+                  <p class="">
+                    <a class="text-gray anim-underline-in" href="{{ item.url }}">Lees verder</a>
+                  </p>
+
+                </div>
+              </article> #}
+
+              <article class="col section anim-move-in w-full md:w-6/12 mb-12">
+                <div class="text-white leading-tight fade-in text-white text-regular" style="max-width: 920px">
+
+                  <a class="text-white anim-underline-in-parent-trigger" href="{{ item.url }}">
+                    {% include "components/_figure.twig" with {
+                      image : item.thumbnail.first(),
+                      orientation: "landscape"
+                    } %}
+                    <p class="text-base text-gray mt-4 mb-2">
+                      {{ item.postDate | date("F d, Y") }}
+                    </p>
+                    <h2 class="mb-4 text-xlarge">
+                      <span class="anim-underline-in calc-this">
+                        {{ item.title }}
+                      </span>
+                      <p class="my-4 text-large">
+                        {{ mergedParts }}...
+                      </p>
+                    </h2>
+                    
                   </a>
 
                   <p class="">
